@@ -17,6 +17,7 @@ namespace CoursesOrganizerApp.Models
         public DateTime Date { get; set; }
         public int SubjectId { get; set; }
 
+
         public string Links { get; set; }
 
         public string UserId { get; set; }
