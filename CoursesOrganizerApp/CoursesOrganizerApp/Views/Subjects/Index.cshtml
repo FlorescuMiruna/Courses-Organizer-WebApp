@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Lista discipline";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@foreach (var subject in ViewBag.Subjects)
+{
+    <p>@subject.SubjectName</p>
+    <p>@subject.TeacherName</p>
+    <p>@subject.Description</p>
+
+    <a class="btn btn-success" href="/Subjects/Show/@subject.SubjectId">Afisare disciplina</a>
+    <a class="btn btn-success" href="/Subjects/Edit/@subject.SubjectId">Editare disciplina</a>
+    <br />
+    <hr />
+    <br />
+}
+<br />
+<a class="btn btn-info" href="/Subjects/New">Adauga o noua categorie</a>
+<br />
+
+<br />
+<a class="btn btn-info" href="/Courses/Index">Lista cursuri</a>
+<br />

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Adaugare Disciplina";
+}
+
+
+
+<h2>Adaugare Disciplina</h2>
+
+<form method="post" action="/Subjects/New">
+
+    <label>Nume disciplina</label>
+    <br />
+    <input type="text" name="SubjectName" />
+    <br /><br />
+
+    <label>Numele profesorului</label>
+    <br />
+    <input type="text" name="TeacherName" />
+    <br /><br />
+
+    <label>Descriere</label>
+    <br />
+    <input type="text" name="Description" />
+    <br /><br />
+
+    <button class="btn btn-success" type="submit">Adauga disciplina</button>
+</form>
+
+<br />
+<br /><br />
+<a class="btn btn-success" href="/Subjects/Index/">Afisare lista discipline</a>
+
