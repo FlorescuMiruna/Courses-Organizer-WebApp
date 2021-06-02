@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<h1>Afisare task</h1>
+<h2>@ViewBag.StudentTask.Title</h2>
+<p>@ViewBag.StudentTask.Deadline</p>
+<p>@ViewBag.StudentTask.Links</p>
+<br />
+<br />
+
+<p>@ViewBag.TeacherEmail.Date</p>
+
+<p>Disciplina: @ViewBag.Subject.SubjectName</p>
+
+
+<a href="/StudentTasks/Edit/@ViewBag.StudentTask.Id">Modifica curs</a>
+
+<form method="post" action="/StudentTasks/Delete/@ViewBag.StudentTask.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button type="submit">Sterge task-ul</button>
+</form>
+
+<hr />
+<a href="/Tasks/Index">Inapoi la lista task-urilor</a>
+<br />
+<a href="/Tasks/New">Adauga task</a>
+<br />
+
+
+
+

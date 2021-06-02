@@ -1,8 +1,10 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CoursesOrganizerApp.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+
 
 namespace CoursesOrganizerApp.Models
 {
@@ -23,7 +25,14 @@ namespace CoursesOrganizerApp.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext,
+            CoursesOrganizerApp.Migrations.Configuration>("DefaultConnection"));
         }
+
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<StudentTask> StudentTasks { get; set; }
+
 
         public static ApplicationDbContext Create()
         {

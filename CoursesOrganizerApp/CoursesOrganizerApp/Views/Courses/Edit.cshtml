@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<form method="post" action="/Courses/Edit/@ViewBag.Course.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    <br />
+    <label>Titlu curs</label>
+    <br />
+    <input type="text" name="Title" value="@ViewBag.Course.Title" />
+    <br /><br />
+    <label>Continut articol</label>
+    <br />
+    <input type="text" name="Content" value="@ViewBag.Course.Content" />
+    <br /><br />
+
+    <input type="text" name="Links" value="@ViewBag.Course.Links" />
+    <br /><br />
+    <label>Data</label>
+    <br />
+    <input type="text" name="Date" value="@ViewBag.Course.Date" />
+    <br />
+    <select name="SubjectId">
+        @foreach (var subject in ViewBag.Subjects)
+        {
+            <option @{ if (subject.SubjectId == ViewBag.Subject.SubjectId) { @: selected="selected"
+                    } }
+                    value="@subject.SubjectId">
+                @subject.SubjectName
+            </option>
+        }
+    </select>
+    <br />
+    <br />
+    <button class="btn btn-warning" type="submit">Modifica acest cursul</button>
+    <br />
+</form>
+
+

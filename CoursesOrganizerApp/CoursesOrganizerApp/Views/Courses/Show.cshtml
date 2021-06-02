@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+}
+
+<h1>Afisare curs</h1>
+<h2>@ViewBag.Course.Title</h2>
+<p>@ViewBag.Course.Content</p>
+<p>@ViewBag.Course.Date</p>
+<a href="@ViewBag.Course.Links">@ViewBag.Course.Links</a>
+<p>Disciplina: @ViewBag.Subject.SubjectName</p>
+
+
+<a class="btn btn-warning" href="/Courses/Edit/@ViewBag.Course.Id">Modifica curs</a>
+<br />
+<br />
+
+
+<form method="post" action="/Courses/Delete/@ViewBag.Course.Id">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button class="btn btn-danger" type="submit">Sterge acest curs</button>
+</form>
+<br />
+<br />
+
+
+@**<button type="button" class="btn btn-success" href="/Courses/New">Adauga acest curs</button> **@
+
+<hr />
+<a class="btn btn-info" href="/Courses/Index">Inapoi la lista cusrurilor</a>
+<br />
+<br />
+
+
+
+

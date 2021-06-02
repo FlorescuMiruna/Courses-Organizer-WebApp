@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Afisare disciplina";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>@ViewBag.Subject.SubjectName</p>
+<p>@ViewBag.Subject.TeacherName</p>
+<p>@ViewBag.Subject.Description</p>
+
+<form method="post" action="/Subjects/Delete/@ViewBag.Subject.SubjectId">
+
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+
+    <button class="btn btn-danger" type="submit">Sterge disciplina</button>
+
+</form>
+<br />
+<a class="btn btn-info" href="/Subjects/Index/">Afisare lista discipline</a>
+
+<br />
+<hr />
+<br />
+

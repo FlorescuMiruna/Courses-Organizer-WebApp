@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Adaugare curs</h2>
+<form method="post" action="/Courses/New">
+    <label>Titlu curs</label>
+    <input type="text" name="Title" />
+    <br />
+    <label>Continut curs</label>
+    <textarea name="Content"></textarea>
+    <br />
+
+    <label>Link-uri catre materiale</label>
+    <textarea name="Links"></textarea>
+    <br />
+    <input type="hidden" name="Date" value="@DateTime.Now" />
+    <br />
+
+    <label>Selectati disciplina</label>
+
+
+    <select name="SubjectId">
+        @foreach (var subject in ViewBag.Subjects)
+        {
+            <option value="@subject.SubjectId">@subject.SubjectName</option>
+        }
+    </select>
+    <br />
+    <button class="btn btn-success" type="submit">Adauga curs</button>
+</form>
+
+

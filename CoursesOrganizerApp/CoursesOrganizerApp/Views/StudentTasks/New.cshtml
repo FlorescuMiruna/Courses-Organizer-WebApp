@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Adauga un nou task</h2>
+<form method="post" action="/StudentTasks/New">
+    <label>Denumire task</label>
+    <input type="text" name="Title" />
+
+    <br />
+    <label>Deadline:</label>
+    <input type="DateTime" name="Date" />
+    <br />
+
+    <br />
+
+    <label>Adauga link-uri utile:</label>
+    <textarea name="Links"></textarea>
+
+    <br />
+    <br />
+
+    <label>Rezolvarea task-ului trebuie trimisa la adresa:</label>
+    <input type="text" name="TeacherEmail" />
+
+    <br />
+
+
+
+
+    @*** <label>Selectati disciplina</label>
+        <select name="SubjectId">
+            @foreach (var subject in ViewBag.Subjects)
+            {
+                <option value="@subject.SubjectId">@subject.SubjectName</option>
+            }
+        </select> **@
+        <br /> 
+    <button class="btn btn-success" type="submit">Adauga curs</button>
+</form>
+
+

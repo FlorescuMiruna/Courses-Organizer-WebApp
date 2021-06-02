@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Afisare taskuri</h2>
+
+@foreach (var stask in ViewBag.StudentTasks)
+{
+    <h2>@stask.Title</h2>
+
+    <p>@stask.Deadline</p>
+    <p>@stask.Links</p>
+    <p>@stask.Subject.SubjectName</p>
+    <br />
+    <hr />
+    <br />
+    <p>@stask.TeacherEmail</p>
+    <a class="btn btn-success" href="/StudentTasks/Show/@stask.Id">Afisare task</a>
+    <br />
+    <hr />
+    <br />
+}
+<a class="btn btn-success" href="/Subjects/Index/">Afisare lista discipline</a>
+<br />
+<br />
+<a class="btn btn-success" href="/StudentTasks/New">Adauga task</a>
+<br />
+<br />
+
+<br />
+
+
