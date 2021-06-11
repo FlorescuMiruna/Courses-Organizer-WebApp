@@ -1,4 +1,4 @@
-﻿using CoursesOrganizerApp.Models;
+using CoursesOrganizerApp.Models;
 using CoursesOrganizerApp.Models;
 using System;
 using System.Collections.Generic;
