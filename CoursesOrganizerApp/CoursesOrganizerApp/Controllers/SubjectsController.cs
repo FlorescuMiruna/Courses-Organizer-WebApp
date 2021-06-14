@@ -1,4 +1,4 @@
-﻿using CoursesOrganizerApp.Models;
+using CoursesOrganizerApp.Models;
 using CoursesOrganizerApp.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace CoursesOrganizerApp.Controllers
 {
+
     [Authorize]
     public class SubjectsController : Controller
     {
@@ -16,6 +17,12 @@ namespace CoursesOrganizerApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: subject
+        [Authorize(Roles = "User")]
+        public ActionResult Afis()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var subjects = from subject in db.Subjects
@@ -24,20 +31,21 @@ namespace CoursesOrganizerApp.Controllers
             ViewBag.Subjects = subjects;
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Show(int id)
         {
             Subject subject = db.Subjects.Find(id);
             ViewBag.Subject = subject;
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult New()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult New(Subject sub)
         {
             try
@@ -51,7 +59,7 @@ namespace CoursesOrganizerApp.Controllers
                 return View();
             }
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             Subject subject = db.Subjects.Find(id);
@@ -60,6 +68,7 @@ namespace CoursesOrganizerApp.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id, Subject requestSubject)
         {
             try
@@ -82,6 +91,7 @@ namespace CoursesOrganizerApp.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             Subject subject = db.Subjects.Find(id);
@@ -90,4 +100,5 @@ namespace CoursesOrganizerApp.Controllers
             return RedirectToAction("Index");
         }
     }
+  
 }
