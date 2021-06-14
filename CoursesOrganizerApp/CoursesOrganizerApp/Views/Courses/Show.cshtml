@@ -1,4 +1,4 @@
-﻿
+
 @{
     ViewBag.Title = "Show";
 }
@@ -7,29 +7,21 @@
 <h2>@ViewBag.Course.Title</h2>
 <p>@ViewBag.Course.Content</p>
 <p>@ViewBag.Course.Date</p>
-<a href="@ViewBag.Course.Links">@ViewBag.Course.Links</a>
+
 <p>Disciplina: @ViewBag.Subject.SubjectName</p>
 
 
-<a class="btn btn-warning" href="/Courses/Edit/@ViewBag.Course.Id">Modifica curs</a>
-<br />
-<br />
-
-
+<a href="/Courses/Edit/@ViewBag.Course.Id">Modifica curs</a>
 
 <form method="post" action="/Courses/Delete/@ViewBag.Course.Id">
     @Html.HttpMethodOverride(HttpVerbs.Delete)
-    <button class="btn btn-danger" type="submit">Sterge acest curs</button>
+    <button type="submit">Sterge curs</button>
 </form>
-<br />
-<br />
-
-
-@**<button type="button" class="btn btn-success" href="/Courses/New">Adauga acest curs</button> **@
 
 <hr />
-<a class="btn btn-info" href="/Courses/Index">Inapoi la lista cusrurilor</a>
+<a href="/Courses/Index">Inapoi la cursuri</a>
 <br />
+<a href="/Courses/New">Adauga curs</a>
 <br />
 
 
