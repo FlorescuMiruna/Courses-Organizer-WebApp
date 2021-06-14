@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -21,9 +21,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index")</li>
+                    <li>@Html.ActionLink("Adaugare curs", "New", "Courses")</li>
+                  
+                        <li>@Html.ActionLink("Lista task-uri", "Index", "StudentTasks")</li>
+                    
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Adaugare discipline", "New", "Subjects")</li>
+                        <li>@Html.ActionLink("Afisare utilizatori", "Index", "Users")</li>
+
+                    }
+
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
