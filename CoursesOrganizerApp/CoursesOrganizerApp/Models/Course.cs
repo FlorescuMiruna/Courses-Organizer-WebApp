@@ -8,8 +8,7 @@ using System.Web;
 namespace CoursesOrganizerApp.Models
 {
     public class Course
-    {
-        [Key]
+    {  [Key]
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }
@@ -17,15 +16,11 @@ namespace CoursesOrganizerApp.Models
         public DateTime Date { get; set; }
         public int SubjectId { get; set; }
 
-
-        public string Links { get; set; }
-
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
 
 
         public virtual Subject Subject { get; set; }
+
     }
-
-
 }
