@@ -1,4 +1,4 @@
-﻿
+
 @{
     ViewBag.Title = "Edit";
 }
@@ -15,28 +15,23 @@
     <br />
     <input type="text" name="Content" value="@ViewBag.Course.Content" />
     <br /><br />
-
-    <input type="text" name="Links" value="@ViewBag.Course.Links" />
-    <br /><br />
     <label>Data</label>
     <br />
     <input type="text" name="Date" value="@ViewBag.Course.Date" />
     <br />
     <select name="SubjectId">
         @foreach (var subject in ViewBag.Subjects)
-        {
-            <option @{ if (subject.SubjectId == ViewBag.Subject.SubjectId) { @: selected="selected"
-                    } }
-                    value="@subject.SubjectId">
-                @subject.SubjectName
+         {
+            <option @{ if (subject.SubjectId == ViewBag.Subject.SubjectId)
+                        { @: selected= "selected"
+                        } 
+                     }
+                    value="@subject.SubjectId"> @subject.SubjectName
             </option>
-        }
-
+         }
     </select>
     <br />
-    <br />
-    <button class="btn btn-warning" type="submit">Modifica acest cursul</button>
-    <br />
+    <button type="submit">Modifica curs</button>
 </form>
 
 
