@@ -1,35 +1,22 @@
-﻿
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Bun venit! Acestea sunt cursurile tale</h2>
+<h2>Afisare cursuri</h2>
 
 @foreach (var course in ViewBag.Courses)
 {
     <h2>@course.Title</h2>
     <p>@course.Content</p>
-    <a href="@course.Links">@course.Links</a>
-
-
     <p>@course.Date</p>
     <p>@course.Subject.SubjectName</p>
-    <a class="btn btn-info" href="/Courses/Show/@course.Id">Afisare curs</a>
+    <a class="btn btn-success"  href="/Courses/Show/@course.Id">Afisare curs</a>
     <br />
     <hr />
     <br />
 }
 
 
-<br />
-<a class="btn btn-success" href="/Courses/New">Adauga un nou curs!</a>
-<br />
-<br />
-<a class="btn btn-info" href="/Subjects/Index/">Lista discipline</a>
-<br />
-
-<br />
-<a class="btn btn-info" href="/StudentTasks/Index">Lista task-uri</a>
-<br />
 
 
